@@ -6,6 +6,13 @@
  * Time: 20:08
  */
 
-echo "hello<br>";
+$str  = '';
 
-echo "hello from test branch";
+$str .= '<script src="ajax_test.js"></script>';
+
+$str.='<button onclick="foo()">Click it!</button>';;
+
+echo $str;
+
+
+
