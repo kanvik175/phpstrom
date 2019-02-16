@@ -6,13 +6,30 @@
  * Time: 20:08
  */
 
-$str  = '';
+$arr = ['Ruslan', 'Kate', 'Rupert', 'Karl'];
 
-$str .= '<script src="ajax_test.js"></script>';
+$param = $_GET['p'];
+$hint = '';
 
-$str.='<button onclick="foo()">Click it!</button>';;
+if (isset($param)) {
+    $param_len = strlen($param);
+    $param = strtolower($param);
+    if ($param_len) {
+        foreach ($arr as $name) {
+            if (stristr(substr($name, 0, $param_len), $param)) {
+                if ($hint) {
+                    $hint.=", $name";
+                } else {
+                    $hint = $name;
+                }
+            }
+        }
+    }
+}
 
-echo $str;
+echo $hint !== '' ? $hint : 'no suggestions';
+
+
 
 
 
